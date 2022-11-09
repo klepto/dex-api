@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'org.slf4j:slf4j-simple:2.0.1'
+    implementation 'org.slf4j:slf4j-api:2.0.1'
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'net.jodah:typetools:0.6.3'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'com.google.inject:guice:5.1.0'
+
+    implementation('dev.klepto.kweb3:kweb3') {
+        version {
+            branch = 'master'
+        }
+    }
+}
+
+application {
+    mainClass = 'dev.hlwgroup.compounder.Compounder'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
